@@ -1,0 +1,14 @@
+version: '3'
+services:
+  web:
+    image: nginx  # Используем образ Nginx в качестве веб-сервера (можете заменить на свой образ, если требуется)
+    ports:
+      - "3000:80"  # Пробросим порт 8080 на хосте на порт 80 в контейнере
+    volumes:
+      - .:/usr/share/nginx/html # Монтируем ваш проект в контейнер
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge
